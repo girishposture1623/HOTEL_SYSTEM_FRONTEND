@@ -1,7 +1,8 @@
 import Navbar from "./Navbar";
 import locationIcon from "../assets/logo.png";
-import SearchBar from "./searchBar";
-import "../Styles/Hero.css"
+import SearchBar from "./SearchBar";
+import "../Styles/Hero.css";
+
 const Hero = () => {
   return (
     <section className="hero-area">
@@ -18,7 +19,8 @@ const Hero = () => {
 
         <p>Find the perfect hotel for your next adventure.</p>
       </div>
-      <SearchBar/>
+
+      <SearchBar />
     </section>
   );
 };
