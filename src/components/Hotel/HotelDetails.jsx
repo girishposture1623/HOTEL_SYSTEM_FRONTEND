@@ -1048,13 +1048,13 @@ const HotelDetails = () => {
                   CALL HOTEL
                   ================================================= */}
 
-              {hotel.phone_number ? (
+              {hotel?.phone_number ? (
 
                 hotel.call_status ===
                 "available" ? (
 
                   <a
-                    href={`tel:${hotel.phone_number}`}
+                    href={`tel:${hotel?.phone_number}`}
                     className="call-hotel-btn"
                   >
                     ☎ Call Hotel
