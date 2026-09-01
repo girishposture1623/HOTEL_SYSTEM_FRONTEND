@@ -22,7 +22,7 @@ const PopularHotels = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await api.get("/home/hotels");
+        const response = await api.get("/hotel/hotels");
         console.log("HOTELS:", hotels);
         setHotels(response.data.hotels || []);
       } catch (error) {

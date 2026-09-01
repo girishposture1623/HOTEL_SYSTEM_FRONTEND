@@ -3,7 +3,7 @@ import api from "./api.js";
 
 const getHotels = async (params = {}) => {
   const response = await api.get(
-    "/home/hotels",
+    "/hotel/hotels",
     {
       params: {
         search: params.search || "",
@@ -23,7 +23,7 @@ const getHotels = async (params = {}) => {
 
 const getHotelById = (id) => {
   return api.get(
-    `/home/hotels/${id}`
+    `/hotel/hotels/${id}`
   );
 };
 

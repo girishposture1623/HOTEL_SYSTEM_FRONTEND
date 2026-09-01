@@ -52,7 +52,7 @@ const Hotels = () => {
 
         
 
-        const response = await api.get("/home/hotels", {
+        const response = await api.get("/hotel/hotels", {
           params: {
             search: searchValue,
           },

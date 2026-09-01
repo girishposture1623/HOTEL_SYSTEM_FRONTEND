@@ -58,7 +58,7 @@ const HotelDetails = () => {
 
         const response =
           await api.get(
-            `/home/hotels/${id}`
+            `/hotel/hotels/${id}`
           );
 
      
