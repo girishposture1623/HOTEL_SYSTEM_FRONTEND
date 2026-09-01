@@ -1,0 +1,461 @@
+/* =====================================================
+   CONTACT PAGE
+===================================================== */
+
+.contact-page {
+  width: 100%;
+
+  background: #ffffff;
+
+  color: #172033;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.contact-hero {
+  width: 100%;
+
+  min-height: 320px;
+
+  background-image:
+    linear-gradient(
+      rgba(10, 26, 62, 0.62),
+      rgba(10, 26, 62, 0.62)
+    ),
+    url("../assets//about//Contact.png");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+.contact-hero-content {
+  color: #ffffff;
+
+  padding: 30px 20px;
+}
+
+
+.contact-hero-content p {
+  margin: 0 0 12px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+
+.contact-hero-content h1 {
+  margin: 0 0 12px;
+
+  font-size: 48px;
+
+  font-weight: 700;
+}
+
+
+.contact-hero-content span {
+  font-size: 18px;
+
+  opacity: 0.95;
+}
+
+
+/* =====================================================
+   CONTACT SECTION
+===================================================== */
+
+.contact-section {
+  width: min(1100px, calc(100% - 40px));
+
+  margin: 80px auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+
+/* =====================================================
+   CONTACT INFORMATION
+===================================================== */
+
+.contact-info {
+  padding-top: 10px;
+
+  max-width: 500px;
+}
+
+
+.contact-small-title {
+  margin: 0 0 10px;
+
+  color: #2d6cdf;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.contact-info h2 {
+  margin: 0 0 18px;
+
+  color: #0a1a3e;
+
+  font-size: 34px;
+
+  line-height: 1.2;
+}
+
+
+.contact-description {
+  margin: 0 0 35px;
+
+  color: #666666;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =====================================================
+   CONTACT ITEMS
+===================================================== */
+
+.contact-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  margin-bottom: 25px;
+}
+
+
+.contact-icon {
+  width: 48px;
+
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #eef4ff;
+
+  border-radius: 50%;
+
+  font-size: 20px;
+}
+
+
+.contact-item h3 {
+  margin: 0 0 5px;
+
+  color: #0a1a3e;
+
+  font-size: 16px;
+}
+
+
+.contact-item p {
+  margin: 0;
+
+  color: #707070;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+.contact-form-container {
+  padding: 35px;
+
+  background: #f7f9fc;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+
+.contact-form-container h2 {
+  margin: 0 0 25px;
+
+  color: #0a1a3e;
+
+  font-size: 25px;
+}
+
+
+/* Form group */
+
+.contact-form-group {
+  margin-bottom: 18px;
+}
+
+
+.contact-form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #333333;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.contact-form-group input,
+.contact-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #333333;
+
+  font-size: 14px;
+
+  font-family: inherit;
+
+  transition: 0.2s ease;
+}
+
+
+.contact-form-group input:focus,
+.contact-form-group textarea:focus {
+  border-color: #2d6cdf;
+
+  box-shadow:
+    0 0 0 3px rgba(45, 108, 223, 0.08);
+}
+
+
+.contact-form-group textarea {
+  resize: vertical;
+
+  min-height: 120px;
+}
+
+
+/* =====================================================
+   SEND BUTTON
+===================================================== */
+
+.contact-submit-btn {
+  width: 100%;
+
+  padding: 13px 20px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  background: #0a1a3e;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+
+.contact-submit-btn:hover {
+  background: #13295a;
+
+  transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   TABLET
+   768px - 991px
+===================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .contact-hero {
+    min-height: 300px;
+  }
+
+
+  .contact-hero-content h1 {
+    font-size: 40px;
+  }
+
+
+  .contact-section {
+    width: calc(100% - 40px);
+
+    margin: 60px auto;
+
+    gap: 35px;
+  }
+
+
+  .contact-info h2 {
+    font-size: 28px;
+  }
+
+
+  .contact-form-container {
+    padding: 28px;
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+   BELOW 768px
+===================================================== */
+
+@media (max-width: 767px) {
+
+  /* Hero */
+
+  .contact-hero {
+    min-height: 270px;
+  }
+
+
+  .contact-hero-content {
+    padding: 20px 15px;
+  }
+
+
+  .contact-hero-content p {
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  .contact-hero-content h1 {
+    font-size: 32px;
+  }
+
+
+  .contact-hero-content span {
+    font-size: 15px;
+  }
+
+
+  /* Contact section */
+
+  .contact-section {
+    width: calc(100% - 30px);
+
+    margin: 45px auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+
+  /* Contact information */
+
+  .contact-info {
+    max-width: 100%;
+  }
+
+
+  .contact-info h2 {
+    font-size: 27px;
+  }
+
+
+  .contact-description {
+    font-size: 14px;
+
+    margin-bottom: 30px;
+  }
+
+
+  .contact-item {
+    margin-bottom: 20px;
+  }
+
+
+  .contact-icon {
+    width: 44px;
+
+    height: 44px;
+
+    font-size: 18px;
+  }
+
+
+  /* Form */
+
+  .contact-form-container {
+    padding: 25px 20px;
+
+    border-radius: 16px;
+  }
+
+
+  .contact-form-container h2 {
+    font-size: 23px;
+  }
+
+
+  .contact-form-group input,
+  .contact-form-group textarea {
+    font-size: 13px;
+  }
+
+}

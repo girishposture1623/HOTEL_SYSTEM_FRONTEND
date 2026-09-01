@@ -1,0 +1,654 @@
+/* =========================================================
+   BOOKING SUCCESS PAGE
+   ========================================================= */
+
+.booking-success-page {
+  width: 100%;
+  max-width: 950px;
+
+  margin: 0 auto;
+
+  padding: 45px 25px 70px;
+
+  box-sizing: border-box;
+}
+
+.booking-success-page .p-img p span  img{
+  width: 12px;
+  height: 12px;
+}
+
+.success-pay-btn {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.success-pay-btn:hover {
+  background: #374151;
+
+  transform: translateY(-1px);
+}
+
+.success-pay-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+/* =====================================================
+   PAYMENT SUCCESS
+   ===================================================== */
+
+.payment-success-box {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin: 24px 0;
+
+  padding: 20px;
+
+  border: 1px solid #bbf7d0;
+
+  border-radius: 12px;
+
+  background: #f0fdf4;
+}
+
+.payment-success-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #16a34a;
+
+  color: white;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.payment-success-content h2 {
+  margin: 0 0 6px;
+
+  font-size: 20px;
+}
+
+.payment-success-content p {
+  margin: 3px 0;
+
+  color: #4b5563;
+
+  font-size: 14px;
+}
+
+.payment-success-id {
+  margin-top: 8px;
+
+  color: #166534;
+
+  font-size: 13px;
+
+  word-break: break-all;
+}
+/* =========================================================
+   SUCCESS CARD
+   ========================================================= */
+
+.success-card {
+  padding: 35px 25px;
+
+  margin-bottom: 25px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 14px;
+
+  background: #f0fdf4;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SUCCESS ICON
+   ========================================================= */
+
+.success-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #16a34a;
+
+  color: #ffffff;
+
+  font-size: 34px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.success-card h1 {
+  margin: 0 0 9px;
+
+  color: #166534;
+
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.success-message {
+  margin: 0;
+
+  color: #4b5563;
+
+  font-size: 14px;
+}
+
+.success-booking-id {
+  margin: 14px 0 0;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.success-booking-id strong {
+  color: #111827;
+}
+
+
+/* =========================================================
+   DETAILS CONTAINER
+   ========================================================= */
+
+.success-details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   HOTEL CARD
+   ========================================================= */
+
+.success-hotel-card {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 18px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.04);
+}
+
+.success-hotel-card img,
+.success-no-image {
+  width: 130px;
+  height: 95px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  object-fit: cover;
+}
+
+.success-no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f3f4f6;
+
+  font-size: 35px;
+}
+
+.success-hotel-card h2 {
+  margin: 0 0 8px;
+
+  color: #111827;
+
+  font-size: 20px;
+}
+
+.success-hotel-card p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.success-section {
+  padding: 22px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+.success-section h2 {
+  margin: 0 0 18px;
+
+  color: #111827;
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   STAY GRID
+   ========================================================= */
+
+.success-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.success-grid > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding: 13px;
+
+  border-radius: 8px;
+
+  background: #f8fafc;
+}
+
+.success-grid span,
+.success-status span {
+  color: #8b929c;
+
+  font-size: 11px;
+}
+
+.success-grid strong {
+  color: #111827;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   GUESTS
+   ========================================================= */
+
+.success-guests {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.success-guests > div {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 13px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.success-guests span {
+  font-size: 18px;
+}
+
+.success-guests strong {
+  color: #374151;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.success-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.success-price-row strong {
+  color: #374151;
+
+  font-size: 14px;
+}
+
+.success-price-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 18px 0;
+
+  background: #e5e7eb;
+}
+
+.success-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.success-total span {
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.success-total strong {
+  color: #111827;
+
+  font-size: 23px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+/* =====================================================
+   STATUS
+   ===================================================== */
+
+.success-status {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+
+  margin: 24px 0;
+}
+
+
+.status-item {
+  padding: 16px 18px;
+
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  border: 1px solid;
+}
+
+
+.status-item span {
+  font-size: 13px;
+
+  color: #6b7280;
+}
+
+
+.status-item strong {
+  font-size: 16px;
+
+  text-transform: capitalize;
+}
+
+
+/* =====================================================
+   BEFORE PAYMENT
+   ===================================================== */
+
+.status-pending,
+.status-payment-pending {
+  background: #fff7ed;
+
+  border-color: #fed7aa;
+}
+
+
+.status-pending strong,
+.status-payment-pending strong {
+  color: #ea580c;
+}
+
+
+/* =====================================================
+   AFTER PAYMENT
+   ===================================================== */
+
+.status-confirmed,
+.status-paid {
+  background: #f0fdf4;
+
+  border-color: #bbf7d0;
+}
+
+
+.status-confirmed strong,
+.status-paid strong {
+  color: #16a34a;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.success-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding-top: 5px;
+}
+
+.success-primary-btn,
+.success-secondary-btn {
+  min-width: 180px;
+
+  height: 45px;
+
+  padding: 0 20px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.success-primary-btn {
+  border: none;
+
+  background: #111827;
+
+  color: #ffffff;
+}
+
+.success-primary-btn:hover {
+  background: #000000;
+
+  transform: translateY(-1px);
+}
+
+.success-secondary-btn {
+  border: 1px solid #d1d5db;
+
+  background: #ffffff;
+
+  color: #374151;
+}
+
+.success-secondary-btn:hover {
+  background: #f9fafb;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .booking-success-page {
+    padding: 30px 14px 50px;
+  }
+
+  .success-card {
+    padding: 28px 17px;
+  }
+
+  .success-card h1 {
+    font-size: 23px;
+  }
+
+  .success-hotel-card {
+    padding: 13px;
+  }
+
+  .success-hotel-card img,
+  .success-no-image {
+    width: 100px;
+    height: 80px;
+  }
+
+  .success-hotel-card h2 {
+    font-size: 17px;
+  }
+
+  .success-hotel-card p {
+    font-size: 11px;
+  }
+
+  .success-section {
+    padding: 17px;
+  }
+
+  .success-guests {
+    grid-template-columns: 1fr;
+  }
+
+  .success-actions {
+    flex-direction: column;
+  }
+
+  .success-primary-btn,
+  .success-secondary-btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+  .success-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .success-status {
+    grid-template-columns: 1fr;
+  }
+
+  .success-hotel-card {
+    align-items: flex-start;
+  }
+
+  .success-hotel-card img,
+  .success-no-image {
+    width: 90px;
+    height: 75px;
+  }
+
+  .success-price-row {
+    font-size: 11px;
+  }
+
+  .success-total strong {
+    font-size: 20px;
+  }
+
+}

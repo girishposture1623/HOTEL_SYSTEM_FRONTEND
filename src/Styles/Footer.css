@@ -1,0 +1,195 @@
+
+.footer {
+  width: 100%;
+
+  background: #0a1a3e;
+
+  color: #ffffff;
+}
+
+
+
+.footer-container {
+  width: min(1180px, calc(100% - 40px));
+
+  margin: 0 auto;
+
+  padding: 55px 0;
+
+  display: grid;
+
+  grid-template-columns:
+    1.5fr
+    1fr
+    1fr;
+
+  gap: 60px;
+}
+
+
+.footer-brand h2 {
+  margin: 0 0 15px;
+
+  font-size: 28px;
+
+  font-weight: 700;
+}
+
+
+.footer-brand p {
+  max-width: 330px;
+
+  margin: 0;
+
+  color: #c8cedc;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+
+.footer-links h3,
+.footer-contact h3 {
+  margin: 0 0 18px;
+
+  font-size: 17px;
+
+  font-weight: 600;
+}
+
+
+
+.footer-links {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+
+.footer-links a {
+  color: #c8cedc;
+
+  font-size: 14px;
+
+  text-decoration: none;
+
+  transition: 0.3s ease;
+}
+
+
+.footer-links a:hover {
+  color: #ffffff;
+
+  transform: translateX(3px);
+}
+
+
+
+.footer-contact p {
+  margin: 0 0 10px;
+
+  color: #c8cedc;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+
+.footer-bottom {
+  width: 100%;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  text-align: center;
+
+  padding: 18px 15px;
+
+  box-sizing: border-box;
+}
+
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #aeb6c7;
+
+  font-size: 12px;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .footer-container {
+    width: calc(100% - 40px);
+
+    gap: 35px;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+
+  .footer-container {
+    width: calc(100% - 30px);
+
+    padding: 40px 0;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+
+  .footer-brand h2 {
+    font-size: 25px;
+  }
+
+
+  .footer-brand p {
+    max-width: 100%;
+
+    font-size: 13px;
+  }
+
+
+  .footer-links h3,
+  .footer-contact h3 {
+    margin-bottom: 13px;
+
+    font-size: 16px;
+  }
+
+
+  .footer-links {
+    gap: 8px;
+  }
+
+
+  .footer-links a,
+  .footer-contact p {
+    font-size: 13px;
+  }
+
+
+  .footer-bottom {
+    padding: 16px 15px;
+  }
+
+
+  .footer-bottom p {
+    font-size: 11px;
+
+    line-height: 1.5;
+  }
+
+}

@@ -1,0 +1,546 @@
+/* =========================================================
+   REGISTER PAGE
+   ========================================================= */
+
+.register-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #f8fafc;
+
+  font-family: "Inter", Arial, sans-serif;
+
+  color: #172554;
+}
+
+
+/* =========================================================
+   LEFT SIDE
+   ========================================================= */
+
+.register-left {
+  width: 50%;
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 45px 55px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(7, 31, 72, 0.9),
+      rgba(7, 31, 72, 0.95)
+    ),
+    url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80");
+
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.register-brand {
+  display: flex;
+  align-items: center;
+cursor: pointer;
+  gap: 11px;
+}
+
+.brand-logo {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #f4b52e;
+
+  color: #ffffff;
+
+  font-size: 21px;
+
+  font-weight: 800;
+}
+
+.register-brand h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  line-height: 1;
+}
+
+.register-brand span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #9fb2d1;
+
+  font-size: 7px;
+
+  letter-spacing: 1.4px;
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.register-left-content {
+  max-width: 500px;
+
+  margin-top: auto;
+
+  margin-bottom: 80px;
+}
+
+.register-left-content h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 47px;
+
+  font-weight: 700;
+
+  line-height: 1.12;
+
+  letter-spacing: -1px;
+}
+
+.register-left-content p {
+  max-width: 420px;
+
+  margin: 20px 0 0;
+
+  color: #c5d0e3;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+   ========================================================= */
+
+.register-right {
+  width: 50%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px;
+}
+
+
+/* =========================================================
+   REGISTER CONTAINER
+   ========================================================= */
+
+.register-container {
+  width: 100%;
+  max-width: 430px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.register-header {
+  margin-bottom: 28px;
+}
+
+.register-header h1 {
+  margin: 0 0 8px;
+
+  color: #172554;
+
+  font-size: 30px;
+
+  font-weight: 700;
+}
+
+.register-header p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.register-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 17px;
+}
+
+.form-group label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #334155;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+
+  height: 45px;
+
+  padding: 0 13px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: #172554;
+
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #a0aec0;
+}
+
+.form-group input:focus {
+  border-color: #2463db;
+
+  box-shadow:
+    0 0 0 3px rgba(36, 99, 219, 0.08);
+}
+
+
+/* =========================================================
+   REGISTER BUTTON
+   ========================================================= */
+
+.register-btn {
+  width: 100%;
+
+  height: 45px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  background: #0f274f;
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.register-btn:hover {
+  background: #142f63;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.auth-divider {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 23px 0;
+}
+
+.auth-divider span {
+  flex: 1;
+
+  height: 1px;
+
+  background: #e5e7eb;
+}
+
+.auth-divider p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   GOOGLE BUTTON
+   ========================================================= */
+
+.google-btn {
+  width: 100%;
+
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #334155;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.google-btn:hover {
+  background: #f8fafc;
+
+  border-color: #cbd5e1;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #4285f4;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LOGIN LINK
+   ========================================================= */
+
+.login-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 24px;
+}
+
+.login-link span {
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+.login-link a {
+  color: #2463db;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+.auth-error {
+  margin-bottom: 15px;
+  padding: 10px 12px;
+
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.auth-success {
+  margin-bottom: 15px;
+  padding: 10px 12px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+
+  background: #f0fdf4;
+  color: #16a34a;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.register-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .register-left {
+    width: 42%;
+
+    padding: 35px;
+  }
+
+  .register-right {
+    width: 58%;
+
+    padding: 30px;
+  }
+
+  .register-left-content h1 {
+    font-size: 38px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .register-page {
+    display: block;
+  }
+
+  .register-left {
+    width: 100%;
+
+    min-height: 240px;
+
+    padding: 25px 22px;
+  }
+
+  .register-left-content {
+    margin-top: 55px;
+
+    margin-bottom: 10px;
+  }
+
+  .register-left-content h1 {
+    font-size: 30px;
+  }
+
+  .register-left-content p {
+    margin-top: 10px;
+
+    font-size: 12px;
+  }
+
+  .register-right {
+    width: 100%;
+
+    min-height: auto;
+
+    padding: 35px 22px 45px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .register-left {
+    min-height: 215px;
+
+    padding: 20px;
+  }
+
+  .register-left-content {
+    margin-top: 40px;
+  }
+
+  .register-left-content h1 {
+    font-size: 27px;
+  }
+
+  .register-right {
+    padding: 30px 18px 40px;
+  }
+
+  .register-header h1 {
+    font-size: 26px;
+  }
+
+}
