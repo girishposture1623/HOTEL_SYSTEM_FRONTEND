@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Loader from '../../components/Loader.jsx'
 import {
   allUsers,
   getUsersById,
@@ -322,19 +322,7 @@ const AdminUsers = () => {
 
   if (loading) {
 
-    return (
-
-      <div className="admin-users-loading">
-
-        <div className="admin-users-spinner"></div>
-
-        <p>
-          Loading users...
-        </p>
-
-      </div>
-
-    );
+    return <Loader/>
 
   }
 

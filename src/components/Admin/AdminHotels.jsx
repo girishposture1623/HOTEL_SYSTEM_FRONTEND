@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Loader from '../../components/Loader.jsx'
 import Navbar from "../Navbar.jsx";
 import LocationImg from '../../assets/location.png'
 import SearchImg from '../../assets/search-interface-symbol.png'
@@ -235,23 +235,7 @@ const AdminHotels = () => {
     loading &&
     hotels.length === 0
   ) {
-    return (
-      <div className="admin-hotels-page">
-
-        <Navbar />
-
-        <div className="admin-hotels-loading">
-
-          <div className="loading-spinner"></div>
-
-          <p>
-            Loading hotels...
-          </p>
-
-        </div>
-
-      </div>
-    );
+    return <Loader/>
   }
 
  

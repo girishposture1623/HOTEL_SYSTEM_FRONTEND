@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from '../../components/Loader.jsx'
 
 import Navbar from "../Navbar.jsx";
 
@@ -172,17 +173,7 @@ const MyBookings = () => {
  
 
   if (loading) {
-    return (
-      <>
-        <Navbar />
-
-        <div className="my-bookings-loading">
-          <div className="my-bookings-spinner"></div>
-
-          <p>Loading your bookings...</p>
-        </div>
-      </>
-    );
+    return <Loader/>
   }
 
  

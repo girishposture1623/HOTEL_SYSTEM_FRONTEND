@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Loader from '../../components/Loader.jsx'
 import "../../Styles/AdminDashboard.css";
 import HotelsImg from '../../assets/ManageHotel.png'
 import BookingHotel from '../../assets/Total.png'
@@ -224,19 +224,7 @@ const AdminDashboard = () => {
 
   if (loading) {
 
-    return (
-
-      <div className="admin-loading">
-
-        <div className="admin-spinner"></div>
-
-        <p>
-          Loading dashboard...
-        </p>
-
-      </div>
-
-    );
+    return <Loader/>
 
   }
 

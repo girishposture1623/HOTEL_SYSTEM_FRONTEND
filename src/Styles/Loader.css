@@ -1,0 +1,116 @@
+.loader-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  z-index: 9999;
+}
+
+/* Logo */
+.loader-logo {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #0a1a3e;
+  color: #ffffff;
+
+  border-radius: 16px;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  animation: logoPulse 1.5s ease-in-out infinite;
+}
+
+/* Brand */
+.loader-container h2 {
+  margin: 15px 0 20px;
+
+  color: #0a1a3e;
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* Loading Line */
+.loader-line {
+  width: 180px;
+  height: 4px;
+
+  overflow: hidden;
+
+  background: #e8ecf3;
+
+  border-radius: 10px;
+}
+
+.loader-line span {
+  display: block;
+
+  width: 60px;
+  height: 100%;
+
+  background: #0a1a3e;
+
+  border-radius: 10px;
+
+  animation: loading 1.2s ease-in-out infinite;
+}
+
+/* Text */
+.loader-container p {
+  margin-top: 15px;
+
+  color: #777777;
+
+  font-size: 13px;
+}
+
+/* Animations */
+@keyframes loading {
+  0% {
+    transform: translateX(-60px);
+  }
+
+  100% {
+    transform: translateX(180px);
+  }
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .loader-logo {
+    width: 58px;
+    height: 58px;
+    font-size: 28px;
+  }
+
+  .loader-container h2 {
+    font-size: 22px;
+  }
+
+  .loader-line {
+    width: 160px;
+  }
+
+  .loader-container p {
+    font-size: 12px;
+  }
+}

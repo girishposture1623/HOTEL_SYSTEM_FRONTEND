@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import "../../Styles/AdminHotelForm.css";
-
+import Loader from '../../components/Loader.jsx'
 import {
   postHotel,
   getHotelById,
@@ -757,11 +757,7 @@ const AdminHotelForm = () => {
 
   if (fetching) {
 
-    return (
-      <div className="admin-form-loading">
-        Loading hotel...
-      </div>
-    );
+    return <Loader/>
   }
 
 

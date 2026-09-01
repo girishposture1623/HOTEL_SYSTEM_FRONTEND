@@ -10,7 +10,7 @@ import ParkingImg from "../../assets/icons8-carpark-24.png";
 import AcImg from "../../assets/icons8-ac-32.png";
 import DeadLiftImg from "../../assets/icons8-gym-50.png";
 import RoomServiceImg from "../../assets/icons8-room-service-50.png";
-
+import Loader from "../Loader";
 import { useNavigate } from "react-router-dom";
 
 const PopularHotels = () => {
@@ -37,11 +37,7 @@ const PopularHotels = () => {
 
   // Loading
   if (loading) {
-    return (
-      <section className="popular-hotels">
-        <p>Loading Hotels....</p>
-      </section>
-    );
+    return  <Loader/>;
   }
 
   return (

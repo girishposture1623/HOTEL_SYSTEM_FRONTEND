@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar.jsx";
 
 
-
+import Loader from '../../components/Loader.jsx'
 import AdultsImage from "../../assets/user.png";
 import ChildImage from "../../assets/icons8-children-50.png";
 
@@ -304,21 +304,7 @@ const AdminBookings = () => {
   
   if (loading) {
 
-    return (
-      <>
-        <Navbar />
-
-        <div className="admin-bookings-loading">
-
-          <div className="admin-bookings-spinner"></div>
-
-          <p>
-            Loading bookings...
-          </p>
-
-        </div>
-      </>
-    );
+    return <Loader/>
 
   }
 

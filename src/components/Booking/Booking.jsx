@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+import Loader from "../Loader.jsx";
 import Navbar from "../Navbar.jsx";
 
 import { createBooking, checkAvailability } from "../../apis/bookingApi.js";
@@ -73,15 +74,7 @@ const Booking = () => {
 
 
   if (authLoading) {
-    return (
-      <>
-        <Navbar />
-
-        <div className="booking-loading">
-          <p>Loading booking...</p>
-        </div>
-      </>
-    );
+    return <Loader/>;
   }
 
  

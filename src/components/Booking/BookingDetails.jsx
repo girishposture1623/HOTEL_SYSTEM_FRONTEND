@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import Navbar from "../Navbar.jsx";
-
+import Loader from '../../components/Loader.jsx'
 import { getBookingById, cancelBooking } from "../../apis/bookingApi.js";
 import api from "../../apis/api.js";
 import "../../Styles/BookingDetails.css";
@@ -193,17 +193,7 @@ const BookingDetails = () => {
   };
 
   if (loading) {
-    return (
-      <>
-        <Navbar />
-
-        <div className="booking-details-loading">
-          <div className="booking-details-spinner"></div>
-
-          <p>Loading booking details...</p>
-        </div>
-      </>
-    );
+    return <Loader/>;
   }
 
   if (error || !booking) {

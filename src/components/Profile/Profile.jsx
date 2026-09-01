@@ -1,6 +1,7 @@
 import { useAuth } from "../../Context/AuthContext.jsx";
 import Navbar from "../Navbar.jsx";
 import "../../Styles/Profile.css";
+import Loader from '../../components/Loader.jsx'
 
 const Profile = () => {
   const { user, loading } = useAuth();
@@ -18,17 +19,7 @@ const Profile = () => {
   }
 
   if (!user) {
-    return (
-      <>
-        <Navbar />
-
-        <div className="profile-page">
-          <div className="profile-card">
-            <h2>Please login to view your profile.</h2>
-          </div>
-        </div>
-      </>
-    );
+    return <Loader/>
   }
 
   const userName =

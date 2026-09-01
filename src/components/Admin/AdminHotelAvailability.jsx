@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Loader from '../../components/Loader.jsx'
 import {
   hotelAvailability,
 } from "../../apis/adminApi.js";
@@ -145,19 +145,7 @@ const AdminHotelAvailability = () => {
 
   if (loading) {
 
-    return (
-
-      <div className="availability-loading">
-
-        <div className="availability-spinner"></div>
-
-        <p>
-          Loading hotel availability...
-        </p>
-
-      </div>
-
-    );
+    return <Loader/>
 
   }
 

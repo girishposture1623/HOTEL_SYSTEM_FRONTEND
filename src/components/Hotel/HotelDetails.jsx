@@ -10,6 +10,8 @@ import { useAuth } from "../../Context/AuthContext.jsx";
 import AdultsImage from "../../assets/user.png";
 import ChildImage from "../../assets/icons8-children-50.png";
 
+import Loader from '../../components/Loader.jsx'
+
 const HotelDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -350,15 +352,7 @@ const HotelDetails = () => {
       <>
         <Navbar />
 
-        <div className="hotel-loading">
-
-          <div className="hotel-loading-spinner"></div>
-
-          <p>
-            Loading hotel...
-          </p>
-
-        </div>
+        <Loader/>
       </>
     );
   }

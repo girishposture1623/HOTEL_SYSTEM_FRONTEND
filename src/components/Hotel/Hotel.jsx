@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import api from "../../apis/api.js";
 import SearchBar from "../SearchBar.jsx";
 import Navbar from "../Navbar.jsx";
-
+import Loader from '../../components/Loader.jsx'
 import "../../Styles/Hotels.css";
 
 import LocationImage from "../../assets/location.png";
@@ -224,15 +224,7 @@ const Hotels = () => {
   // =====================================================
 
   if (loading) {
-    return (
-      <div className="hotels-page">
-        <Navbar />
-
-        <div className="hotels-loading">
-          <h2>Loading hotels...</h2>
-        </div>
-      </div>
-    );
+    return <Loader/>
   }
 
   // =====================================================

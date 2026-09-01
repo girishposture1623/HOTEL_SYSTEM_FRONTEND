@@ -2,20 +2,13 @@ import Navbar from "../Navbar.jsx";
 import { useAuth } from "../../Context/AuthContext.jsx";
 
 import "../../Styles/MyProfile.css";
+import Loader from '../../components/Loader.jsx'
 
 const MyProfile = () => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return (
-      <>
-        <Navbar />
-
-        <div className="profile-loading">
-          Loading profile...
-        </div>
-      </>
-    );
+    return <Loader/>  
   }
 
   if (!user) {

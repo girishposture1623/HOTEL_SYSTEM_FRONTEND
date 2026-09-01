@@ -6,7 +6,6 @@ import {
 } from "react-router-dom";
 
 import Navbar from "../Navbar.jsx";
-
 import {
   createPaymentOrder,
   verifyPayment,
