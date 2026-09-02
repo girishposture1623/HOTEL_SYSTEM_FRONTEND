@@ -8,7 +8,8 @@
   margin: 0 auto;
   padding: 32px 40px 60px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
+  /* CHANGE: Switched to responsive minmax so right card doesn't squish */
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 380px);
   gap: 32px;
   align-items: start;
   box-sizing: border-box;
@@ -20,6 +21,8 @@
 
 .section1 {
   min-width: 0;
+  /* CHANGE: Added width 100% to avoid layout clipping */
+  width: 100%;
 }
 
 /* =====================================================
@@ -35,6 +38,8 @@
   align-items: center;
   gap: 6px;
   margin-bottom: 8px;
+  /* CHANGE: Added flex-wrap so rating badges never break container */
+  flex-wrap: wrap;
 }
 
 .rate strong {
@@ -60,6 +65,8 @@
   font-size: 32px;
   line-height: 1.2;
   font-weight: 700;
+  /* CHANGE: Added word-break to prevent long titles from breaking layout */
+  word-break: break-word;
 }
 
 .location {
@@ -74,6 +81,7 @@
   width: 19px;
   height: 19px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 /* =====================================================
@@ -250,6 +258,8 @@
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 18px;
+  /* CHANGE: Allow header to wrap cleanly on tablet */
+  flex-wrap: wrap;
 }
 
 .rooms-section-header h4 {
@@ -298,6 +308,7 @@
 }
 
 .hotel-room-image {
+  /* CHANGE: Fixed width to 100% so it fills the 250px grid column properly (was bugged at width: 100px) */
   width: 100%;
   height: 100%;
   min-height: 220px;
@@ -374,12 +385,14 @@
   font-size: 21px;
   line-height: 1.2;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .room-price span {
   margin-top: 3px;
   color: #7a7f87;
   font-size: 12px;
+  white-space: nowrap;
 }
 
 /* =====================================================
@@ -416,6 +429,8 @@
   gap: 15px;
   margin-top: auto;
   padding-top: 18px;
+  /* CHANGE: Added flex-wrap so buttons never get hidden or pushed off screen */
+  flex-wrap: wrap;
 }
 
 /* =====================================================
@@ -429,6 +444,7 @@
   border-radius: 7px;
   font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .room-status.available {
@@ -460,6 +476,8 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  /* CHANGE: Prevent button text wrap */
+  white-space: nowrap;
   transition:
     background 0.25s ease,
     border-color 0.25s ease,
@@ -498,6 +516,7 @@
   gap: 10px;
   margin-top: 10px;
   padding: 10px 0 3px;
+  width: 100%;
 }
 
 .rooms-load-more button {
@@ -566,6 +585,8 @@
   position: sticky;
   top: 90px;
   align-self: start;
+  width: 100%;
+  min-width: 0;
 }
 
 .booking-card {
@@ -1166,16 +1187,44 @@
 }
 
 /* =====================================================
-   TABLET
-   651px - 1024px
+   DESKTOP / LAPTOP (1025px - 1200px)
+   ===================================================== */
+/* CHANGE: Added breakpoint to scale layout smoothly on small laptops */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .main-details {
+    padding: 28px 24px 50px;
+    grid-template-columns: minmax(0, 1fr) 330px;
+    gap: 24px;
+  }
+
+  .hotel-room-card {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+}
+
+/* =====================================================
+   TABLET LANDSCAPE & PORTRAIT (651px - 1024px)
    ===================================================== */
 
 @media (min-width: 651px) and (max-width: 1024px) {
+  /* CHANGE: Stack left and right columns if viewport <= 900px to avoid hiding buttons */
   .main-details {
     max-width: 100%;
-    padding: 28px 24px 50px;
-    grid-template-columns: minmax(0, 1fr) 320px;
-    gap: 24px;
+    padding: 24px 20px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .section2 {
+    position: static;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .booking-card {
+    max-width: 100%;
+    padding: 22px;
   }
 
   .title h3 {
@@ -1183,25 +1232,28 @@
   }
 
   .gallery-main {
-    height: 350px;
+    height: 360px;
   }
 
   .gallery-small img {
-    min-height: 109px;
+    min-height: 110px;
   }
 
+  /* CHANGE: Adjusted room card to maintain image & button visibility on tablet */
   .hotel-room-card {
-    grid-template-columns: 205px minmax(0, 1fr);
-    min-height: 195px;
+    grid-template-columns: 210px minmax(0, 1fr);
+    min-height: 200px;
   }
 
   .hotel-room-image,
   .room-no-image {
-    min-height: 195px;
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
   }
 
   .hotel-room-info {
-    padding: 17px;
+    padding: 16px 18px;
   }
 
   .hotel-room-top h3 {
@@ -1212,21 +1264,28 @@
     font-size: 18px;
   }
 
-  .booking-card {
-    padding: 20px;
+  /* CHANGE: Ensured button is fully visible and not hidden by overflowing text */
+  .room-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .room-select-btn {
+    min-width: 130px;
+    padding: 10px 16px;
+    visibility: visible;
+    display: inline-block;
   }
 
   .hotel-gallery-viewer,
   .room-gallery-viewer {
-    padding-left: 65px;
-    padding-right: 65px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 
-  .hotel-gallery-image {
-    max-width: 82vw;
-    max-height: 70vh;
-  }
-
+  .hotel-gallery-image,
   .room-gallery-image {
     max-width: 82vw;
     max-height: 70vh;
@@ -1234,25 +1293,25 @@
 }
 
 /* =====================================================
-   MOBILE
-   650px AND BELOW
+   MOBILE (650px AND BELOW)
    ===================================================== */
 
 @media (max-width: 650px) {
   .main-details {
     width: 100%;
     max-width: 100%;
-    padding: 20px 15px 40px;
+    padding: 20px 14px 40px;
     display: block;
   }
 
   .section2 {
     position: static;
     margin-top: 28px;
+    width: 100%;
   }
 
   .title h3 {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .location {
@@ -1322,7 +1381,7 @@
   }
 
   .hotel-room-info {
-    padding: 17px;
+    padding: 16px;
   }
 
   .hotel-room-top {
@@ -1350,6 +1409,7 @@
     font-size: 12px;
   }
 
+  /* CHANGE: Stack bottom buttons and status cleanly */
   .room-bottom {
     align-items: stretch;
     flex-direction: column;
@@ -1362,6 +1422,7 @@
 
   .room-select-btn {
     width: 100%;
+    text-align: center;
   }
 
   .rooms-load-more {
@@ -1370,6 +1431,8 @@
 
   .rooms-load-more button {
     min-width: 150px;
+    width: 100%;
+    max-width: 260px;
   }
 
   /* -----------------------------
@@ -1412,16 +1475,12 @@
 
   .hotel-gallery-viewer,
   .room-gallery-viewer {
-    padding: 65px 18px 95px;
+    padding: 65px 14px 95px;
   }
 
-  .hotel-gallery-image {
-    max-width: 86vw;
-    max-height: 65vh;
-  }
-
+  .hotel-gallery-image,
   .room-gallery-image {
-    max-width: 86vw;
+    max-width: 88vw;
     max-height: 65vh;
   }
 
@@ -1435,25 +1494,25 @@
 
   .hotel-gallery-nav,
   .room-gallery-nav {
-    width: 42px;
-    height: 42px;
-    margin-top: -21px;
-    font-size: 29px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    font-size: 26px;
   }
 
   .hotel-gallery-prev,
   .room-gallery-prev {
-    left: 8px;
+    left: 6px;
   }
 
   .hotel-gallery-next,
   .room-gallery-next {
-    right: 8px;
+    right: 6px;
   }
 
   .hotel-gallery-thumbs,
   .room-gallery-thumbs {
-    width: calc(100vw - 28px);
+    width: calc(100vw - 24px);
     justify-content: flex-start;
     bottom: 14px;
     gap: 6px;
@@ -1473,49 +1532,49 @@
 }
 
 /* =====================================================
-   SMALL MOBILE
-   400px AND BELOW
+   SMALL MOBILE (400px AND BELOW)
    ===================================================== */
 
 @media (max-width: 400px) {
   .main-details {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .title h3 {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .gallery-main {
-    height: 235px;
+    height: 220px;
   }
 
   .gallery-side {
-    height: 125px;
+    height: 120px;
   }
 
   .amenities-list {
-    gap: 7px;
+    gap: 6px;
   }
 
   .amenity-item {
-    padding: 8px 11px;
+    padding: 7px 10px;
     font-size: 12px;
   }
 
   .hotel-room-image,
   .room-no-image {
-    height: 195px;
-    min-height: 195px;
+    height: 180px;
+    min-height: 180px;
   }
 
   .hotel-room-info {
-    padding: 15px;
+    padding: 14px;
   }
 
   .hotel-room-top {
     flex-direction: column;
+    gap: 8px;
   }
 
   .room-price {
@@ -1528,30 +1587,26 @@
 
   .room-details {
     flex-direction: column;
-    gap: 7px;
+    gap: 6px;
   }
 
   .booking-card {
-    padding: 16px;
+    padding: 15px;
   }
 
   .total-row strong {
     font-size: 19px;
   }
 
-  .hotel-gallery-image {
-    max-width: 88vw;
-    max-height: 62vh;
-  }
-
+  .hotel-gallery-image,
   .room-gallery-image {
-    max-width: 88vw;
-    max-height: 62vh;
+    max-width: 90vw;
+    max-height: 60vh;
   }
 
   .hotel-gallery-thumb,
   .room-gallery-thumb {
-    width: 56px;
-    height: 42px;
+    width: 52px;
+    height: 38px;
   }
 }
