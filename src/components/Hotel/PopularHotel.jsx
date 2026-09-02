@@ -24,7 +24,7 @@ const PopularHotels = () => {
       try {
         const response = await api.get("/hotel/hotels");
         
-        
+        setHotels(response.data.hotels || []);
       } catch (error) {
         console.log("Get hotels error:", error.response?.data || error.message);
       } finally {
