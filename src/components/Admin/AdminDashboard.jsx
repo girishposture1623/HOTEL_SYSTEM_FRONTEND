@@ -9,6 +9,7 @@ import TotalRevenue from '../../assets/Total_Revenue.png'
 import AdminDashboardImg from '../../assets/AdminDashImg.png'
 import WebsiteImg from '../../assets/Website.png'
 import LogOutImg from '../../assets/LogOut.png'
+import BedImg from '../../assets/about/single-bed.png'
 
 import {
   dashBoard,
@@ -368,7 +369,7 @@ const AdminDashboard = () => {
           >
 
             <span>
-              🛏
+              <img src={BedImg} alt="" />
             </span>
 
             Hotel Availability
@@ -528,7 +529,7 @@ const AdminDashboard = () => {
             <div className="stat-card">
 
               <div className="stat-icon green">
-                🛏
+                <img src={BedImg} alt="" />
               </div>
 
               <div>

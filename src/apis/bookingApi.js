@@ -8,10 +8,7 @@ const checkAvailability = (data) => {
 };
 
 const createBooking = (data) => {
-  return api.post(
-    "/bookings",
-    data
-  );
+  return api.post("/bookings", data);
 };
 
 const getMyBookings = () => {
@@ -32,11 +29,17 @@ const cancelBooking = (id) => {
   );
 };
 
-
+const updatePaymentStatus = (id, status) => {
+  return api.patch(
+    `/bookings/${id}/payment-status`,
+    { status }
+  );
+};
 export {
   checkAvailability,
   createBooking,
   getMyBookings,
   getBookingById,
   cancelBooking,
+  updatePaymentStatus
 };

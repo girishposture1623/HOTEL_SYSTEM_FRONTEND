@@ -12,9 +12,9 @@ import "../../Styles/Booking.css";
 import AdultsImage from "../../assets/user.png";
 import ChildImage from "../../assets/icons8-children-50.png";
 import LocationImage from "../../assets/location.png";
-import LockImg from '../../assets/Lock.png'
-
-
+import LockImg from "../../assets/Lock.png";
+import BedImg from '../../assets/about/single-bed.png'
+import SqureFeetImg from '../../assets/about/square.png'
 
 const Booking = () => {
   const location = useLocation();
@@ -22,33 +22,28 @@ const Booking = () => {
   const [showPayment, setShowPayment] = useState(false);
   const [createdBooking, setCreatedBooking] = useState(null);
 
-  
   const { user, loading: authLoading } = useAuth();
 
- 
   const hotel = location.state?.hotel || null;
 
   const bookingData = location.state?.bookingData || null;
 
   const availability = location.state?.availability || null;
 
- 
-
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
 
   const [success, setSuccess] = useState("");
+  const [selectedBookingRoomImageIndex, setSelectedBookingRoomImageIndex] =
+    useState(0);
 
-  
-
+  const [showRoomGallery, setShowRoomGallery] = useState(false);
   useEffect(() => {
-    
     if (authLoading) {
       return;
     }
 
-  
     if (!user) {
       navigate("/login", {
         state: {
@@ -63,36 +58,34 @@ const Booking = () => {
     }
   }, [user, authLoading, navigate, bookingData, hotel]);
 
-  
-
   useEffect(() => {
     if (!authLoading && user && (!hotel || !bookingData)) {
       navigate("/hotels");
     }
   }, [hotel, bookingData, navigate, authLoading, user]);
 
-
-
   if (authLoading) {
-    return <Loader/>;
+    return <Loader />;
   }
-
- 
 
   if (!user) {
     return null;
   }
 
-
-
   if (!hotel || !bookingData) {
     return null;
   }
 
-  
-
   const {
     hotelId,
+    roomId,
+    roomNumber,
+    roomType,
+    roomImages,
+    capacity,
+    bedType,
+    roomSize,
+    description,
     checkIn,
     checkOut,
     adults,
@@ -101,8 +94,6 @@ const Booking = () => {
     nights,
     pricePerNight,
   } = bookingData;
-
-  
 
   const price = Number(pricePerNight) || 0;
 
@@ -115,8 +106,6 @@ const Booking = () => {
   const taxes = Math.round(roomTotal * 0.12);
 
   const grandTotal = roomTotal + taxes;
-
-
 
   const formatDate = (date) => {
     if (!date) {
@@ -136,11 +125,9 @@ const Booking = () => {
     });
   };
 
-
   const handleConfirmBooking = async () => {
     setError("");
     setSuccess("");
-
 
     if (!user) {
       navigate("/login", {
@@ -157,8 +144,6 @@ const Booking = () => {
     try {
       setLoading(true);
 
-    
-
       const availabilityResponse = await checkAvailability({
         hotelId: Number(hotelId),
 
@@ -168,8 +153,6 @@ const Booking = () => {
 
         rooms: Number(rooms),
       });
-
-     
 
       if (
         !availabilityResponse.data?.success ||
@@ -183,31 +166,17 @@ const Booking = () => {
         return;
       }
 
-     
-
       const payload = {
         hotelId: Number(hotelId),
-
+        roomId: Number(roomId),
         checkIn,
-
         checkOut,
-
         adults: Number(adults),
-
         children: Number(children || 0),
-
         rooms: Number(rooms),
       };
 
-
-
-     
-
       const response = await createBooking(payload);
-
-
-
-   
 
       if (response.data?.success) {
         setSuccess("Booking created successfully!");
@@ -234,8 +203,6 @@ const Booking = () => {
       setLoading(false);
     }
   };
-
-
 
   return (
     <>
@@ -294,7 +261,7 @@ const Booking = () => {
             </div>
           </div>
         )}
-        
+
         <div className="booking-page-header">
           <button
             type="button"
@@ -311,18 +278,12 @@ const Booking = () => {
           </div>
         </div>
 
-
         {error && <div className="booking-error">{error}</div>}
-
 
         {success && <div className="booking-success">{success}</div>}
 
         <div className="booking-layout">
-
-
           <section className="booking-left">
-
-
             <div className="booking-hotel-card">
               <div className="booking-hotel-image">
                 {hotel.images?.length > 0 ? (
@@ -339,14 +300,153 @@ const Booking = () => {
 
                 <h2>{hotel.name}</h2>
 
-                <p><img src={LocationImage} alt="" /> {hotel.location}</p>
+                <p>
+                  <img src={LocationImage} alt="" /> {hotel.location}
+                </p>
               </div>
             </div>
 
-       
-
             <div className="booking-section">
               <h2>Your Stay</h2>
+
+              {roomId && (
+                <div className="booking-section selected-room-booking">
+                  <h2>Selected Room</h2>
+                  {selectedBookingRoomImageIndex > 0 && (
+                    <button
+                      type="button"
+                      className="booking-room-gallery-nav booking-room-gallery-prev"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedBookingRoomImageIndex((prev) => prev - 1);
+                      }}
+                    >
+                      ‹
+                    </button>
+                  )}
+                  {showRoomGallery && roomImages?.length > 0 && (
+                    <div
+                      className="booking-room-gallery"
+                      onClick={() => setShowRoomGallery(false)}
+                    >
+                      <span className="booking-room-gallery-counter">
+                        {selectedBookingRoomImageIndex + 1} /{" "}
+                        {roomImages.length}
+                      </span>
+                      <button
+                        type="button"
+                        className="booking-room-gallery-close"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setShowRoomGallery(false);
+                        }}
+                      >
+                        ×
+                      </button>
+                      {selectedBookingRoomImageIndex <
+                        roomImages.length - 1 && (
+                        <button
+                          type="button"
+                          className="booking-room-gallery-nav booking-room-gallery-next"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedBookingRoomImageIndex(
+                              (prev) => prev + 1,
+                            );
+                          }}
+                        >
+                          ›
+                        </button>
+                      )}
+                      <img
+                        className="booking-room-gallery-image"
+                        src={
+                          roomImages[selectedBookingRoomImageIndex]?.url ||
+                          roomImages[selectedBookingRoomImageIndex]?.image_url
+                        }
+                        alt={roomType || "Selected Room"}
+                        onClick={(e) => e.stopPropagation()}
+                      />
+
+                      <div
+                        className="booking-room-gallery-thumbs"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {roomImages.map((image, index) => (
+                          <img
+                            key={image.id || index}
+                            src={image.url || image.image_url}
+                            alt={`Room ${index + 1}`}
+                            className={
+                              index === selectedBookingRoomImageIndex
+                                ? "active"
+                                : ""
+                            }
+                            onClick={() =>
+                              setSelectedBookingRoomImageIndex(index)
+                            }
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  <div className="selected-room-booking-card">
+                    <div className="selected-room-booking-image">
+                      {roomImages?.length > 0 ? (
+                        <>
+                          <img
+                            src={
+                              roomImages[selectedBookingRoomImageIndex]?.url ||
+                              roomImages[selectedBookingRoomImageIndex]
+                                ?.image_url
+                            }
+                            alt={roomType || "Selected Room"}
+                            onClick={() => setShowRoomGallery(true)}
+                          />
+
+                          {roomImages.length > 1 && (
+                            <div className="selected-room-booking-thumbs">
+                              {roomImages.map((image, index) => (
+                                <img
+                                  key={image.id || index}
+                                  src={image.url || image.image_url}
+                                  alt={`Room ${index + 1}`}
+                                  onClick={() =>
+                                    setSelectedBookingRoomImageIndex(index)
+                                  }
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <div className="booking-no-room-image">🛏</div>
+                      )}
+                    </div>
+
+                    <div className="selected-room-booking-info">
+                      <div className="selected-room-booking-title">
+                        <h3>{roomType || "Room"}</h3>
+                        <span>Room {roomNumber}</span>
+                      </div>
+
+                      <div className="selected-room-booking-details">
+                        <span><img src={AdultsImage} alt="" /> {capacity} Guests</span>
+
+                        {bedType && <span><img src={BedImg} alt="" /> {bedType}</span>}
+
+                        {roomSize && <span><img src={SqureFeetImg} alt="" />{roomSize}</span>}
+                      </div>
+
+                      {description && <p>{description}</p>}
+
+                      <strong>
+                        ₹{Number(pricePerNight).toLocaleString("en-IN")} / night
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <div className="stay-grid">
                 <div className="stay-item">
@@ -381,14 +481,14 @@ const Booking = () => {
               </div>
             </div>
 
-         
-
             <div className="booking-section">
               <h2>Guests</h2>
 
               <div className="guest-summary">
                 <div className="guest-summary-item">
-                  <span><img src={AdultsImage} alt="" /></span>
+                  <span>
+                    <img src={AdultsImage} alt="" />
+                  </span>
 
                   <div>
                     <strong>
@@ -401,7 +501,9 @@ const Booking = () => {
                 </div>
 
                 <div className="guest-summary-item">
-                  <span><img src={ChildImage} alt="" /></span>
+                  <span>
+                    <img src={ChildImage} alt="" />
+                  </span>
 
                   <div>
                     <strong>
@@ -414,7 +516,7 @@ const Booking = () => {
                 </div>
 
                 <div className="guest-summary-item">
-                  <span>🛏</span>
+                  <span><img src={BedImg} alt="" /></span>
 
                   <div>
                     <strong>
@@ -427,8 +529,6 @@ const Booking = () => {
                 </div>
               </div>
             </div>
-
-           
 
             <div className="booking-section">
               <h2>Hotel Amenities</h2>
@@ -446,8 +546,6 @@ const Booking = () => {
               )}
             </div>
 
-           
-
             <div className="booking-policy">
               <div className="policy-icon">✓</div>
 
@@ -461,12 +559,9 @@ const Booking = () => {
             </div>
           </section>
 
-       
           <aside className="booking-right">
             <div className="booking-price-card">
               <h2>Price Summary</h2>
-
-             
 
               <div className="price-summary-row">
                 <span>
@@ -482,26 +577,19 @@ const Booking = () => {
                 <strong>₹{roomTotal.toLocaleString("en-IN")}</strong>
               </div>
 
-
               <div className="price-summary-row">
                 <span>Taxes & fees</span>
 
                 <strong>₹{taxes.toLocaleString("en-IN")}</strong>
               </div>
 
-              
-
               <div className="price-divider"></div>
-
-            
 
               <div className="price-total-row">
                 <span>Total</span>
 
                 <strong>₹{grandTotal.toLocaleString("en-IN")}</strong>
               </div>
-
-            
 
               {availability && (
                 <div className="availability-info">
@@ -515,7 +603,6 @@ const Booking = () => {
                 </div>
               )}
 
-
               <button
                 type="button"
                 className="confirm-booking-btn"
@@ -525,7 +612,9 @@ const Booking = () => {
                 {loading ? "Creating Booking..." : "Confirm Booking"}
               </button>
 
-              <p className="secure-booking-text"><img src={LockImg} alt="" /> Secure booking</p>
+              <p className="secure-booking-text">
+                <img src={LockImg} alt="" /> Secure booking
+              </p>
             </div>
           </aside>
         </div>

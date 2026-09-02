@@ -23,8 +23,8 @@ const PopularHotels = () => {
     const fetchHotels = async () => {
       try {
         const response = await api.get("/hotel/hotels");
-        console.log("HOTELS:", hotels);
-        setHotels(response.data.hotels || []);
+        
+        
       } catch (error) {
         console.log("Get hotels error:", error.response?.data || error.message);
       } finally {

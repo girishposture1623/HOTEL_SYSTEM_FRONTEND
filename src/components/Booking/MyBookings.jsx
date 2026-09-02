@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Loader from '../../components/Loader.jsx'
+import Loader from "../../components/Loader.jsx";
 
 import Navbar from "../Navbar.jsx";
 
 import { getMyBookings, cancelBooking } from "../../apis/bookingApi.js";
 
-import LocationImg from '../../assets/location.png'
-import "../../Styles/MyBooking.css"
+import LocationImg from "../../assets/location.png";
+import "../../Styles/MyBooking.css";
 
 const MyBookings = () => {
   const navigate = useNavigate();
@@ -20,16 +20,12 @@ const MyBookings = () => {
 
   const [error, setError] = useState("");
 
-  
-
   const fetchBookings = async () => {
     try {
       setLoading(true);
       setError("");
 
       const response = await getMyBookings();
-
-   
 
       setBookings(response.data?.bookings || []);
     } catch (error) {
@@ -46,13 +42,9 @@ const MyBookings = () => {
     }
   };
 
-
-
   useEffect(() => {
     fetchBookings();
   }, []);
-
-  
 
   const formatDate = (date) => {
     if (!date) return "-";
@@ -70,13 +62,9 @@ const MyBookings = () => {
     });
   };
 
- 
-
   const formatPrice = (price) => {
     return (Number(price) || 0).toLocaleString("en-IN");
   };
-
- 
 
   const getNights = (checkIn, checkOut) => {
     if (!checkIn || !checkOut) {
@@ -96,8 +84,6 @@ const MyBookings = () => {
     return Math.ceil(difference / (1000 * 60 * 60 * 24));
   };
 
- 
-
   const handleCancelBooking = async (bookingId) => {
     const confirmed = window.confirm(
       "Are you sure you want to cancel this booking?",
@@ -113,8 +99,6 @@ const MyBookings = () => {
       setError("");
 
       const response = await cancelBooking(bookingId);
-
-    
 
       if (response.data?.success) {
         // Refresh bookings
@@ -134,8 +118,6 @@ const MyBookings = () => {
     }
   };
 
-  
-
   const getStatusClass = (status) => {
     const value = String(status || "").toLowerCase();
 
@@ -154,8 +136,6 @@ const MyBookings = () => {
     return "status-pending";
   };
 
-  
-
   const getPaymentClass = (status) => {
     const value = String(status || "").toLowerCase();
 
@@ -170,13 +150,9 @@ const MyBookings = () => {
     return "payment-pending";
   };
 
- 
-
   if (loading) {
-    return <Loader/>
+    return <Loader />;
   }
-
- 
 
   if (error && bookings.length === 0) {
     return (
@@ -206,15 +182,11 @@ const MyBookings = () => {
     );
   }
 
-  
-
   return (
     <>
       <Navbar />
 
       <main className="my-bookings-page">
-      
-
         <div className="my-bookings-header">
           <div>
             <h1>My Bookings</h1>
@@ -231,10 +203,7 @@ const MyBookings = () => {
           </button>
         </div>
 
-
         {error && <div className="my-bookings-inline-error">{error}</div>}
-
-      
 
         {bookings.length === 0 ? (
           <div className="no-bookings">
@@ -259,8 +228,6 @@ const MyBookings = () => {
 
               return (
                 <article className="my-booking-card" key={booking.id}>
-               
-
                   <div className="my-booking-image">
                     {booking.hotel_image ? (
                       <img src={booking.hotel_image} alt={booking.hotel_name} />
@@ -269,17 +236,14 @@ const MyBookings = () => {
                     )}
                   </div>
 
-                
-
                   <div className="my-booking-content">
-                  
-
                     <div className="booking-card-top">
                       <div>
                         <h2>{booking.hotel_name || "Hotel"}</h2>
 
                         <p className="booking-location">
-                          <img src={LocationImg} alt="" /> {booking.hotel_location || "Location unavailable"}
+                          <img src={LocationImg} alt="" />{" "}
+                          {booking.hotel_location || "Location unavailable"}
                         </p>
                       </div>
 
@@ -302,24 +266,19 @@ const MyBookings = () => {
                       </div>
                     </div>
 
-                   
-
                     <div className="booking-details-grid">
                       <div className="booking-detail">
                         <span>Check-in</span>
-
                         <strong>{formatDate(booking.check_in)}</strong>
                       </div>
 
                       <div className="booking-detail">
                         <span>Check-out</span>
-
                         <strong>{formatDate(booking.check_out)}</strong>
                       </div>
 
                       <div className="booking-detail">
                         <span>Guests</span>
-
                         <strong>
                           {Number(booking.adults || 0)} Adults
                           {Number(booking.children || 0) > 0 &&
@@ -328,8 +287,17 @@ const MyBookings = () => {
                       </div>
 
                       <div className="booking-detail">
-                        <span>Rooms</span>
+                        <span>Room Type</span>
+                        <strong>{booking.room_type || "Room"}</strong>
+                      </div>
 
+                      <div className="booking-detail">
+                        <span>Room Number</span>
+                        <strong>{booking.room_number || "-"}</strong>
+                      </div>
+
+                      <div className="booking-detail">
+                        <span>Rooms</span>
                         <strong>
                           {Number(booking.rooms_booked || 0)} Room
                           {Number(booking.rooms_booked) !== 1 ? "s" : ""}
@@ -338,7 +306,6 @@ const MyBookings = () => {
 
                       <div className="booking-detail">
                         <span>Duration</span>
-
                         <strong>
                           {nights} Night
                           {nights !== 1 ? "s" : ""}
@@ -347,11 +314,9 @@ const MyBookings = () => {
 
                       <div className="booking-detail">
                         <span>Booking ID</span>
-
                         <strong>#{booking.id}</strong>
                       </div>
                     </div>
-
 
                     <div className="booking-card-bottom">
                       <div className="booking-price">

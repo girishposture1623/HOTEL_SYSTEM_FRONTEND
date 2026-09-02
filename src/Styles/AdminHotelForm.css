@@ -1,6 +1,4 @@
-/* =========================================================
-   ADMIN HOTEL FORM PAGE
-   ========================================================= */
+/* Admin Hotel Form */
 
 .admin-hotel-form-page {
   width: 100%;
@@ -9,11 +7,6 @@
   background: #f5f7fb;
   box-sizing: border-box;
 }
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
 
 .admin-form-header {
   width: 100%;
@@ -33,11 +26,6 @@
   font-size: 15px;
 }
 
-
-/* =========================================================
-   BACK BUTTON
-   ========================================================= */
-
 .back-btn {
   border: none;
   background: transparent;
@@ -46,138 +34,40 @@
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .back-btn:hover {
   color: #1d4ed8;
 }
 
-
-/* =====================================================
-   CALL STATUS
-   ===================================================== */
-
-#callStatus {
-  width: 100%;
-  height: 46px;
-  padding: 0 14px;
-
-  border: 1px solid #d1d5db;
-  border-radius: 9px;
-
-  background: #fff;
-  color: #374151;
-
-  font-size: 14px;
-  font-weight: 500;
-
-  outline: none;
-  cursor: pointer;
-
-  transition: 0.2s ease;
-}
-
-#callStatus:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-
-/* Available */
-
-#callStatus option[value="available"] {
-  color: #16a34a;
-}
-
-
-/* Busy */
-
-#callStatus option[value="busy"] {
-  color: #dc2626;
-}
-
-
-/* =====================================================
-   HOTEL PHONE NUMBER
-   ===================================================== */
-
-#phoneNumber {
-  width: 100%;
-  height: 46px;
-  padding: 0 14px;
-
-  border: 1px solid #d1d5db;
-  border-radius: 9px;
-
-  background: #fff;
-  color: #374151;
-
-  font-size: 14px;
-
-  outline: none;
-
-  transition: 0.2s ease;
-}
-
-#phoneNumber:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-#phoneNumber::placeholder {
-  color: #9ca3af;
-}
-
-/* =========================================================
-   ERROR
-   ========================================================= */
-
-.admin-form-error {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 13px 16px;
-  margin-bottom: 20px;
-  border: 1px solid #fecaca;
-  border-radius: 8px;
-  background: #fef2f2;
-  color: #dc2626;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-
-/* =========================================================
-   SUCCESS
-   ========================================================= */
-
+.admin-form-error,
 .admin-form-success {
   width: 100%;
   box-sizing: border-box;
   padding: 13px 16px;
   margin-bottom: 20px;
-  border: 1px solid #bbf7d0;
   border-radius: 8px;
-  background: #f0fdf4;
-  color: #16a34a;
   font-size: 14px;
   font-weight: 500;
 }
 
+.admin-form-error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
 
-/* =========================================================
-   FORM
-   ========================================================= */
+.admin-form-success {
+  border: 1px solid #bbf7d0;
+  background: #f0fdf4;
+  color: #16a34a;
+}
 
 .admin-hotel-form {
   width: 100%;
   max-width: 1100px;
 }
-
-
-/* =========================================================
-   FORM CARD
-   ========================================================= */
 
 .form-card {
   width: 100%;
@@ -189,11 +79,6 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
-
-
-/* =========================================================
-   FORM CARD HEADER
-   ========================================================= */
 
 .form-card-header {
   margin-bottom: 24px;
@@ -212,21 +97,11 @@
   font-size: 14px;
 }
 
-
-/* =========================================================
-   FORM GRID
-   ========================================================= */
-
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
-
-
-/* =========================================================
-   FORM GROUP
-   ========================================================= */
 
 .form-group {
   display: flex;
@@ -245,16 +120,14 @@
   font-weight: 600;
 }
 
-
-/* =========================================================
-   INPUT
-   ========================================================= */
-
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select,
+.room-form input,
+.room-form textarea,
+.room-form select {
   width: 100%;
   box-sizing: border-box;
-  padding: 12px 14px;
   border: 1px solid #d1d5db;
   border-radius: 8px;
   outline: none;
@@ -262,36 +135,43 @@
   color: #111827;
   font-family: inherit;
   font-size: 14px;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-group input {
+.form-group input,
+.form-group select,
+.room-form input,
+.room-form select {
   height: 46px;
+  padding: 0 14px;
 }
 
-.form-group textarea {
+.form-group textarea,
+.room-form textarea {
   min-height: 120px;
+  padding: 12px 14px;
   resize: vertical;
   line-height: 1.6;
 }
 
 .form-group input::placeholder,
-.form-group textarea::placeholder {
+.form-group textarea::placeholder,
+.room-form input::placeholder,
+.room-form textarea::placeholder {
   color: #9ca3af;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus,
+.room-form input:focus,
+.room-form textarea:focus,
+.room-form select:focus,
+#phoneNumber:focus,
+#callStatus:focus {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
-
-
-/* =========================================================
-   SMALL TEXT
-   ========================================================= */
 
 .form-group small {
   margin-top: 7px;
@@ -299,16 +179,56 @@
   font-size: 12px;
 }
 
+#callStatus {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
 
-/* =========================================================
-   IMAGE UPLOAD BOX
-   ========================================================= */
+#callStatus option[value="available"] {
+  color: #16a34a;
+}
 
-.image-upload-box {
+#callStatus option[value="busy"] {
+  color: #dc2626;
+}
+
+#phoneNumber {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  background: #fff;
+  color: #374151;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+#phoneNumber::placeholder {
+  color: #9ca3af;
+}
+
+/* Hotel and room image upload */
+
+.image-upload-box,
+.room-image-upload-box {
   width: 100%;
   min-height: 180px;
   box-sizing: border-box;
+  /* padding: 100px; */
   display: flex;
+  /* flex-direction: row; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -317,12 +237,11 @@
   border-radius: 12px;
   background: #f8fafc;
   cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.image-upload-box:hover {
+.image-upload-box:hover,
+.room-image-upload-box:hover {
   border-color: #2563eb;
   background: #eff6ff;
 }
@@ -341,52 +260,45 @@
   font-weight: 700;
 }
 
-.image-upload-box strong {
+.image-upload-box strong,
+.room-image-upload-box strong {
   color: #374151;
   font-size: 15px;
 }
 
-.image-upload-box span {
+.image-upload-box span,
+.room-image-upload-box span {
   color: #9ca3af;
   font-size: 13px;
 }
 
-
-/* =========================================================
-   EXISTING / NEW IMAGES
-   ========================================================= */
-
 .existing-images-section,
-.new-images-section {
+.new-images-section,
+.room-existing-images,
+.room-new-images {
   margin-bottom: 24px;
 }
 
 .existing-images-section h3,
-.new-images-section h3 {
+.new-images-section h3,
+.room-existing-images h4,
+.room-new-images h4 {
   margin: 0 0 14px;
   color: #374151;
   font-size: 15px;
   font-weight: 600;
 }
 
-
-/* =========================================================
-   IMAGE GRID
-   ========================================================= */
-
-.image-preview-grid {
+.image-preview-grid,
+.room-image-preview-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
   margin-bottom: 20px;
 }
 
-
-/* =========================================================
-   IMAGE CARD
-   ========================================================= */
-
-.image-preview-card {
+.image-preview-card,
+.room-image-preview-card {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -396,19 +308,16 @@
   background: #f3f4f6;
 }
 
-.image-preview-card img {
+.image-preview-card img,
+.room-image-preview-card img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
 }
 
-
-/* =========================================================
-   REMOVE IMAGE BUTTON
-   ========================================================= */
-
-.remove-image-btn {
+.remove-image-btn,
+.remove-room-image-btn {
   position: absolute;
   top: 7px;
   right: 7px;
@@ -426,20 +335,233 @@
   line-height: 1;
   cursor: pointer;
   z-index: 2;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.remove-image-btn:hover {
+.remove-image-btn:hover,
+.remove-room-image-btn:hover {
   background: #dc2626;
   transform: scale(1.08);
 }
 
+/* Room management */
 
-/* =========================================================
-   ACTION BUTTONS
-   ========================================================= */
+.room-management-card {
+  overflow: hidden;
+}
+
+.room-management-card > .form-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.room-total {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 20px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.add-room-btn {
+  min-width: 120px;
+  height: 42px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.add-room-btn:hover {
+  background: #1d4ed8;
+}
+
+.add-room-btn:active {
+  transform: translateY(1px);
+}
+
+.room-form {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.room-form > h3 {
+  margin: 0 0 20px;
+  color: #111827;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.room-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.room-form-actions button {
+  min-width: 110px;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.room-form-actions button:first-child {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
+}
+
+.room-form-actions button:first-child:hover {
+  background: #f9fafb;
+}
+
+.room-form-actions button:last-child {
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.room-form-actions button:last-child:hover {
+  background: #1d4ed8;
+}
+
+.room-form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.room-images-group {
+  margin-top: 20px;
+}
+
+.rooms-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.room-card {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 10px rgba(15, 23, 42, 0.05);
+}
+
+.room-card-content {
+  min-width: 0;
+  flex: 1;
+}
+
+.room-card-content h3 {
+  margin: 0 0 7px;
+  color: #111827;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.room-card-content p {
+  margin: 4px 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.room-card-content span {
+  display: block;
+  margin-top: 8px;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.room-card-content small {
+  display: block;
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.room-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.room-card-actions button {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.room-card-actions button:first-child {
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.room-card-actions button:first-child:hover {
+  background: #dbeafe;
+}
+
+.room-card-actions button:last-child {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.room-card-actions button:last-child:hover {
+  background: #fee2e2;
+}
+
+.no-rooms {
+  padding: 30px 20px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #6b7280;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Hotel form actions */
 
 .form-actions {
   width: 100%;
@@ -450,23 +572,22 @@
   padding-top: 4px;
 }
 
-
-/* =========================================================
-   CANCEL BUTTON
-   ========================================================= */
-
-.cancel-btn {
-  min-width: 110px;
+.cancel-btn,
+.save-hotel-btn {
   height: 44px;
-  padding: 0 20px;
-  border: 1px solid #d1d5db;
+  padding: 0 22px;
   border-radius: 8px;
-  background: #ffffff;
-  color: #374151;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.cancel-btn {
+  min-width: 110px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #374151;
 }
 
 .cancel-btn:hover {
@@ -474,32 +595,19 @@
   border-color: #9ca3af;
 }
 
-
-/* =========================================================
-   SAVE / UPDATE BUTTON
-   ========================================================= */
-
 .save-hotel-btn {
   min-width: 150px;
-  height: 44px;
-  padding: 0 22px;
   border: none;
-  border-radius: 8px;
   background: #2563eb;
   color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
 }
 
 .save-hotel-btn:hover {
   background: #1d4ed8;
 }
 
-.save-hotel-btn:active {
+.save-hotel-btn:active,
+.cancel-btn:active {
   transform: translateY(1px);
 }
 
@@ -508,11 +616,6 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
-
-
-/* =========================================================
-   LOADING
-   ========================================================= */
 
 .admin-form-loading {
   width: 100%;
@@ -526,41 +629,63 @@
   font-weight: 600;
 }
 
+/* Tablet */
 
-/* =========================================================
-   RESPONSIVE - TABLET
-   ========================================================= */
-
-@media (max-width: 900px) {
-
+@media (min-width: 651px) and (max-width: 1024px) {
   .admin-hotel-form-page {
     padding: 28px 24px 50px;
   }
 
-  .image-preview-grid {
+  .admin-hotel-form {
+    max-width: 100%;
+  }
+
+  .image-preview-grid,
+  .room-image-preview-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
+  .rooms-list {
+    grid-template-columns: 1fr;
+  }
 }
 
-
-/* =========================================================
-   RESPONSIVE - MOBILE
-   ========================================================= */
+/* Mobile */
 
 @media (max-width: 650px) {
-
   .admin-hotel-form-page {
     padding: 20px 15px 40px;
+  }
+
+  .admin-form-header {
+    margin-bottom: 22px;
   }
 
   .admin-form-header h1 {
     font-size: 25px;
   }
 
+  .admin-form-header p {
+    font-size: 14px;
+  }
+
   .form-card {
     padding: 20px;
+    margin-bottom: 18px;
     border-radius: 10px;
+  }
+
+  .form-card-header {
+    margin-bottom: 20px;
+  }
+
+  .form-card-header h2 {
+    font-size: 18px;
+  }
+
+  .room-management-card > .form-card-header {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .form-grid {
@@ -572,23 +697,47 @@
     margin-bottom: 20px;
   }
 
-  .image-preview-grid {
+  .image-preview-grid,
+  .room-image-preview-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
-  .image-upload-box {
+  .image-upload-box,
+  .room-image-upload-box {
     min-height: 150px;
   }
 
+  .room-form {
+    padding: 15px;
+  }
+
+  .rooms-list {
+    grid-template-columns: 1fr;
+  }
+
+  .room-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .room-card-actions {
+    width: 100%;
+  }
+
+  .room-card-actions button {
+    flex: 1;
+  }
+
+  .room-form-actions,
   .form-actions {
     flex-direction: column-reverse;
     align-items: stretch;
   }
 
+  .room-form-actions button,
   .cancel-btn,
   .save-hotel-btn {
     width: 100%;
   }
-
 }

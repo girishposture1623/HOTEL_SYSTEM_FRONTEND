@@ -8,6 +8,8 @@ import {
 import HotelImg from '../../assets/ManageHotel.png'
 
 import "../../Styles/AdminHotelAvailability.css";
+import BedImg from '../../assets/about/single-bed.png'
+
 
 
 const AdminHotelAvailability = () => {
@@ -266,7 +268,7 @@ const AdminHotelAvailability = () => {
         <div className="availability-summary-card">
 
           <div className="summary-icon">
-            🛏
+            <img src={BedImg} alt="" />
           </div>
 
           <div>

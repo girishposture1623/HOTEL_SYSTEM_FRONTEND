@@ -131,6 +131,45 @@ const dashBoard = () => {
   );
 };
 
+
+const getHotelRooms = (hotelId) => {
+  return api.get(
+    `/admin/hotels/${hotelId}/rooms`
+  );
+};
+
+
+const getRoomById = (roomId) => {
+  return api.get(
+    `/admin/rooms/${roomId}`
+  );
+};
+
+
+const postRoom = (hotelId, data) => {
+  return api.post(
+    `/admin/hotels/${hotelId}/rooms`,
+    data
+  );
+};
+
+
+const putRoom = (roomId, data) => {
+  return api.put(
+    `/admin/rooms/${roomId}`,
+    data
+  );
+};
+
+const deleteRoomImage = (roomId, imageId) =>
+  api.delete(`/admin/rooms/${roomId}/images/${imageId}`);
+
+const deleteRoom = (roomId) => {
+  return api.delete(
+    `/admin/rooms/${roomId}`
+  );
+};
+
 export {
   getHotels,
   getHotelById,
@@ -151,4 +190,11 @@ export {
   deleteUser,
 
   dashBoard,
+
+    getHotelRooms,
+  getRoomById,
+  postRoom,
+  putRoom,
+  deleteRoom,
+  deleteRoomImage
 };
